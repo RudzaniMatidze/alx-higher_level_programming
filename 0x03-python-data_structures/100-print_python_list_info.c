@@ -3,6 +3,7 @@
 /**
  * print_python_list_info - print python
  * @p: input
+ * Return: void
  */
 void print_python_list_info(PyObject *p)
 {
