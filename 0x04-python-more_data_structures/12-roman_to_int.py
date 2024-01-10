@@ -12,7 +12,7 @@ def roman_to_int(roman_string):
             'D': 500,
             'M': 1000
     }
-    results = 0
+    result = 0
     previous_value = 0
 
     for num in reversed(roman_string):
@@ -23,6 +23,6 @@ def roman_to_int(roman_string):
 
         else:
             result += value
-        previous_value
+        previous_value = value
 
     return result
