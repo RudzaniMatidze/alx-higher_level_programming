@@ -1,10 +1,13 @@
 #!/usr/bin/python3
-def safe_print_integer_err(value):
-    import sys
+from __future__ import print_function
+import sys
+
+
+def safe_function(fct, *args):
     try:
-        print("{:d}".format(value))
-    except Exception as i:
-        sys.stderr.write("Exception: {}\n".format(i))
-        return (False)
+        count = fct(*args)
+    except Exception as e:
+        print("Exception: {}".format(e), file=sys.stderr)
+        return None
     else:
-        return (True)
+        return count
