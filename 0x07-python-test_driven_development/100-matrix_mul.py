@@ -17,7 +17,6 @@ def matrix_mul(m_a, m_b):
         A new matrix representing the multiplication of m_a by m_b.
     """
 
-
     if not isinstance(m_a, list):
         raise TypeError('m_a must be a list')
     if False in [isinstance(listx, list) for listx in m_a]:
