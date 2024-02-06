@@ -11,5 +11,5 @@ def write_file(filename="", text=""):
     Returns"
         The numbet of characters written.
     """
-    with open(filename, "w", encoding="utf8") as f:
+    with open(filename, "w", encoding="utf-8") as f:
     return f.write(text)
