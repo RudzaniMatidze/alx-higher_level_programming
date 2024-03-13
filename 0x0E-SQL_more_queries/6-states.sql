@@ -1,6 +1,6 @@
 -- Creates the database hbtn_0g_usa and the table states (in the database hbtn_0d_usa)on your MySQL server
 -- Creates a database
-CREATE DATABASE IF NOT EXIST hbtn_0d_usa;
+CREATE DATABASE IF NOT EXISTS hbtn_0d_usa;
 -- Use a database
 USE hbtn_0d_usa;
 -- Creates a table
