@@ -9,7 +9,7 @@ myObject.incr = function () {
 };
 myObject.incr();
 console.log(myObject);
-myObject.inc();
+myObject.incr();
 console.log(myObject);
 myObject.incr();
 console.log(myObject);
