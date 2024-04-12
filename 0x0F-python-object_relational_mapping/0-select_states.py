@@ -4,14 +4,14 @@ import sys
 import MySQLdb
 
 
-def list_status(username, password, database):
+def list_states(username, password, database):
     """ Lists all the states from the database hbtn_0e_0_usa.
     Args:
         username: mysql username
         password: mysql password
         database: mysql database
     """
-    # Connect to the MySQL serve
+    # Connect to the MySQL server
     db = MySQLdb.connect(host='localhost',\
             port=3306,\
             user=username,\
