@@ -3,24 +3,27 @@
 import sys
 import MySQLdb
 
+def filter_states(username, password, database):
+    #connect to MySQL server
+    db= MySQL.connect(
+            host="Localhost",
+            port=3306,
+            user=username,
+            passwd=password,
+            db=database
+            )
 
-if __name__ = "__main__":
-    #Get MySQL credentials from command-line arguments
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
+    cursor = db.cursor()
+    
+    #Execute SQL query to retrieve states starting with 'N'
+    cursor.execute("SELECT * FROM sates WHERE name LIKE 'N%' ORDER BY id ASC")
+    
+    #Fetch all the rows
+    rows = cursor.fetchall()
 
-    #Connect to MySQL server
-    db = MySQLdb.connect(user=username, passwd=password, db=database)
-    c = db.cursor()
+    #print the results
+    for row in rows:
+        print(row)
 
-    #Execute the SQL query to retrieve all states sorted id
-    c.execute("SELECT * FROM `states` ORDER BY `id`")
-
-    #Print states starting with 'N'
-    for state in c.fetchall():
-        if state[1][0] == "N":
-            print(state)
-
-    #Close the database connectiion
+    #Close the database connection
     db.close()
