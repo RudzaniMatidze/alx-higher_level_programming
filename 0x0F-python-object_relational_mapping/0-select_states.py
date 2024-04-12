@@ -3,6 +3,7 @@
 import sys
 import MySQLdb
 
+
 def list_status(username, password, database):
     """ Lists all the states from the database hbtn_0e_0_usa.
     Args:
@@ -13,7 +14,7 @@ def list_status(username, password, database):
     # Connect to the MySQL serve
     db = MySQLdb.connect(host='localhost',\
             port=3306,\
-            user=username.\
+            user=username,\
             passwd=password,\
             db=database)
     cursor = db.cursor()
@@ -33,6 +34,7 @@ def list_status(username, password, database):
 
 # Example usage
 if __name__ == '__main__':
+
 
     username = sys.argv[1]
     password = sys.argv[2]
