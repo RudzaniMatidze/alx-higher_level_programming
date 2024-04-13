@@ -2,7 +2,7 @@
 """Module that deletes states containing the letter
         "a" from a MySQL database using SQLAlchemy."""
 import sys
-from sqlalchemy import create_engine, func
+from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 
