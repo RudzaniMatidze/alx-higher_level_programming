@@ -24,4 +24,5 @@ if __name__ == "__main__":
             session.delete(state)
     # Commits the session to persist the changes
     session.commit()
-    session.flush()
+    #close the session
+    session.close()
