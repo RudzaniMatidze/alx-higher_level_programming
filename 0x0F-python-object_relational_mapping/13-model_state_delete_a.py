@@ -17,6 +17,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     # Creates a session object
     session = Session()
+
     # Retrieves all states from the database
     for state in session.query(State):
         # Checks if the state's name contains the letter "a"
