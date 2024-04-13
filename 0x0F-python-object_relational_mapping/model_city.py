@@ -1,11 +1,14 @@
 #!/usr/bin/python3
 """ Defines the City class"""
 from sqlalchemy import Column , Integer, String, ForeignKey
-from model_state import Base
+from sqlalchemy.ext.declarative import declarative_base
+
+Base = declarative_base()
 
 
 class City(Base):
     """Represents a city for a MySql database.
+
 
     Attributes:
         __tablename__ (str): name of table
