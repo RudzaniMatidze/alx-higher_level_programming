@@ -3,6 +3,7 @@
 import sys
 import MySQLdb
 
+
 def list_states (username, password, database):
     """lists all states from the database hbtn_0e_0_usa.
     Ags:
