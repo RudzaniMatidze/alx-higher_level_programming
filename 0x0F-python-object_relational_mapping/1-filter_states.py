@@ -1,37 +1,14 @@
 #!/usr/bin/python3
-"""Module that lists all the states from the MySQL server"""
+"""Module that lists all states from the hbtn_0e_0_usa database."""
 import sys
 import MySQLdb
 
+if __name__ == "__main__":
+    # Get MySQL credentials from command-line arguments
+    # Connect to MySQL server
+    db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
+    c = db.cursor()
 
-def filter_states(username, password, database):
-    try:
-        # Connect to MySQL server
-        with MySQLdb.connect(
-                host="localhost",
-                port=3306,
-                user=username,
-                passwd=password,
-                db=database
-        ) as db:
-            cursor = db.cursor()
-
-            # Execute SQL query to retrieve states starting with 'N'
-            cursor.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
-
-            # Fetch all the rows
-            rows = cursor.fetchall()
-
-            # Print the results
-            for row in rows:
-                print(row)
-    except MySQLdb.Error as e:
-        print("MySQL Error:", e)
-    except Exception as e:
-        print("Error:", e)
-
-# Example usage:
-username = "your_username"
-password = "your_password"
-database = "your_database_name"
-filter_states(username, password, database)
+    # Execute the SQL query to retrieve all states sorted by id
+    c.execute("SELECT * FROM `states` ORDER BY `id`")
+    [print(state) for state in c.fetchall() if state[1][0] == "N"]
