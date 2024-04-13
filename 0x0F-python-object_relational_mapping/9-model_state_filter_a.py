@@ -9,14 +9,13 @@ from model_state import Base, State
 
 if __name__ == "__main__":
     # Creates the SQLAlchemy engine using the provided MySQL credentials
-    mysql = 'mysql+mysqldb://{}:{}@localhost/{}'
-                           .format(sys.argv[1], sys.argv[2], sys.argv[3]),
-                           pool_pre_ping=True)
+    mysql = 'mysql+mysqldb://{}:{}@localhost:3306/{}'
+                           .format(sys.argv[1], sys.argv[2], sys.argv[3])
 
-    # Creates a session factory
-    Session = sessionmaker(bind=engine)
     engine = create_engine(mysql)
     Base.metadata.create_all(engine)
+    #Creates a session factory
+    Session = sessionmaker(bind=engine)
 
     # Creates a session object
     session = Session()
