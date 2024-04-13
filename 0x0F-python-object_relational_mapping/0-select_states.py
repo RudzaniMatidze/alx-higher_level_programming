@@ -1,17 +1,17 @@
 #!/usr/bin/python3
-"""Module that lists all states from mySQL database"""
+"""A module that lists all states from mySQL database"""
 import sys
 import MySQLdb
 
 
-def list_states (username, password, database):
+def list_states(username, password, database):
     """lists all states from the database hbtn_0e_0_usa.
-    Ags:
+    Args:
         username: mysql username
         password: mysql password
         database: mysql database
     """
-    # Connect to the MySQL server
+    # Connects to the MySQL server
     db = MySQLdb.connect(host='localhost',\
             port=3306,\
             user=username,\
@@ -19,17 +19,17 @@ def list_states (username, password, database):
             db=database)
     cursor = db.cursor()
 
-    # Execute the SQL query to fetch all states
+    # Executes the SQL query to fetch all states
     cursor.execute("SELECT * FROM states ORDER BY id ASC")
 
-    # Fetch all the rows from the query result
+    # Fetches all the rows from the query result
     rows = cursor.fetchall()
 
-    # Print the results
+    # Prints the results
     for row in rows:
         print(row)
 
-    # Close the database connection
+    # Closes the database connection
     db.close()
 
 # Example usage
