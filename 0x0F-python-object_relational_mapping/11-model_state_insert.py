@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """Module that adds a new state to a MySQL database using SQLAlchemy."""
 import sys
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, func
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.sql import insert, update
 from model_state import Base, State
 
 if __name__ == "__main__":
