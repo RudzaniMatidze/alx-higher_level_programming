@@ -4,11 +4,13 @@
 
 import sqlalchemy
 from sqlalchemy import Column, Integer, String, ForeignKey
-from relationship_state import Base, State
+from sqlalchemy.ext.declarative import declarative_base
+
+base = declarative_base
 
 
 class City(Base):
-    """class definition of a state
+    """Represents a City for a MySQL database.
 
     Attributes:
         __tablename__ (str): name of the table

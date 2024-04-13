@@ -8,10 +8,10 @@ A script that creates the State "Califonia" with the City
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from relationship_state import Base, State
-from relationship_city import City
+from relationship_state import State
+from relationship_city import Base, City
 
-if __name__ = "_-main__":
+if __name__ = "__main__":
     # check for correct number of args
     if len(sys.argv) != 4:
         print("Usage: {} <username> <password> <database>".format(sys.argv[0]))

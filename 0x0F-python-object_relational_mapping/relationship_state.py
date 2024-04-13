@@ -3,16 +3,14 @@
     where City is defined as a relationship
 """
 
-import sqlalchemy
+from relationship_city import Base, City
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 
-Base = declarative_base()
-
 
 class State(Base):
-    """Dfines the class of a State
+    """Represents a State for a MySQL database.
 
     Attributes:
         __tablename__ (str): name of the table
@@ -23,7 +21,6 @@ class State(Base):
         cities: Represents a column of string relationship
     """
     
-
     __tablename__ = 'states'
     id = Column(Integer, primary_key=True, nullable=False)
     name = Column(String(128), nullable=False)
