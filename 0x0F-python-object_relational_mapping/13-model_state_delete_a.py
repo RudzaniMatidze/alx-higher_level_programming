@@ -9,9 +9,11 @@ if __name__ == "__main__":
     from sqlalchemy.orm import Session
     from sqlalchemy.schema import Table
 
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
+    #Create the SQLAchemy engine using the provided MySQL credentials
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
                            .format(sys.argv[1], sys.argv[2],
                                    sys.argv[3]), pool_pre_ping=True)
+    # Create engine metadata
     Base.metadata.create_all(engine)
 
     session = Session(engine)
