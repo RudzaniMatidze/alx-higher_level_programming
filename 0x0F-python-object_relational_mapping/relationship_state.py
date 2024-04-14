@@ -1,28 +1,27 @@
 #!/usr/bin/python3
-""" Module that defines the State class using SQLAlchemy,
-    where City is defined as a relationship
-"""
+"""Defines a state and Inherits from SQLAlchemy Base and
+links to the MySQL table cities"""
 
-from relationship_city import Base, City
-from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
+from relationship_city import City, Base
 
 
 class State(Base):
-    """Represents a State for a MySQL database.
+    """Class State
 
     Attributes:
-        __tablename__ (str): name of the table
         id: Represents a column of an auto-generated, unique integer,
-            can't be null and is a primary key
-        name: Represent a column of a string with 128 maximum characters
-            and can't be null
-        cities: Represents a column of string relationship
-    """
-    
-    __tablename__ = "states"
-    id = Column(Integer, primary_key=True, nullable=False
-            unique=True, autoincrement=True)
+            can’t be null and is a primary key.
+        name: Represents a column of a string of 128 characters and
+            can’t be null.
+        cities: Rrepresents a column of an integer, can’t be null
+        """
+
+    __tablename__ = 'states'
+    id = Column(Integer, autoincrement=True,
+                primary_key=True, nullable=False, unique=True)
     name = Column(String(128), nullable=False)
-    cities = relationship("City", cascade="all, delete", backref="state")
+    cities = relationship('City', backref='state',
+                          cascade='all, delete-orphan')
