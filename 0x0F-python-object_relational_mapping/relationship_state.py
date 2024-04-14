@@ -4,7 +4,7 @@
 """
 
 from relationship_city import Base, City
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 
@@ -21,7 +21,7 @@ class State(Base):
         cities: Represents a column of string relationship
     """
     
-    __tablename__ = 'states'
+    __tablename__ = "states"
     id = Column(Integer, primary_key=True, nullable=False)
     name = Column(String(128), nullable=False)
-    cities = relationship("City", cascade="all, delete", bakref="state")
+    cities = relationship("City", cascade="all, delete", backref="state")
