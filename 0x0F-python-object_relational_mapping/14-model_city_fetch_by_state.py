@@ -4,17 +4,18 @@
 """
 import sys
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import Session
 from model_state import Base, State
 from model_city import City
+from sqlalchemy.schma import Table
 
 if __name__ == "__main__":
     # Creates the SQLAlchemy engine using the provided MySQL credentials
-    engine = create_engine("mysql+mysqldb://{}:{}@localhost:3306/{}"
+    engine = create_engine("mysql+mysqldb://{}:{}@localhost/{}"
                            .format(sys.argv[1], sys.argv[2], sys.argv[3]),
                            pool_pre_ping=True)
-    # Creates a session factory
-    Session = sessionmaker(bind=engine)
+
+    Base.metadata.create_all(engine)
 
     # Creates a session object
     session = Session()
@@ -24,6 +25,7 @@ if __name__ == "__main__":
     # and ordering the results by city ID
     for city, state in session.query(City, State)\
                               .filter(City.state_id == State.id)\
-                              .order_by(City.id):
+                              .order_by(City.id).all():
         # Print the city and state information
         print("{}: ({}) {}".format(state.name, city.id, city.name))
+    session.close()
