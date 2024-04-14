@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 """ Module that defines the City class using SQLAlchemy """
 
-
-import sqlalchemy
+from sqlalchemy import relationship
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 
@@ -21,7 +20,8 @@ class City(Base):
         state.id: Represents a column of string id
     """
 
-    __tablename__ = 'cities'
-    id = Column(Integer, primary_key=True)
+    __tablename__ = "cities"
+    id = Column(Integer, primary_key=True, nullable=False)
     name = Column(String(128), nullable=False)
     state.id = Column(Integer, ForeignKey('states.id'), nullable=False)
+    state = relationship("State", back_populates="cities")
