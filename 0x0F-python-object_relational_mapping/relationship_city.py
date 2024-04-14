@@ -1,22 +1,22 @@
 #!/usr/bin/python3
-""" Module that defines the City class using SQLAlchemy """
+"""Defines the class definition of a City"""
 
-from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column, Integer, String, ForeignKey
 
-base = declarative_base()
+Base = declarative_base()
 
 
 class City(Base):
-    """Represents a City for a MySQL database.
+    """Class City
 
     Attributes:
-        __tablename__ (str): name of the table
-        id: Represents a column of an auto-generated, unique integer,
-            can't be null and is a primary key
-        name: Represents a column of a string with maximum 128 characters
-            and can'tbe null
-        state.id: Represents a column of string id
+        id:  Represents a column of an auto-generated, unique integer,
+            can’t be null and is a primary key.
+        name: Represents a column of a string of 128 characters and
+            can't be null.
+        state_id: Represents a column of an integer, can’t be null
+            and is a foreign key to states.id
     """
 
     __tablename__ = 'cities'
