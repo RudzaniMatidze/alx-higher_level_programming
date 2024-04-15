@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Lists all States and corresponding Cities in the database hbtn_0e_101_usa."""
+"""Lists all States and corresponding Cities in the
+    database hbtn_0e_101_usa."""
 
 if __name__ == "__main__":
 
