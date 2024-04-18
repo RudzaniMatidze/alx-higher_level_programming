@@ -11,6 +11,12 @@ from relationship_city import Base, City
 
 
 if __name__ == "__main__":
+    # Check if all required command-line args are provided
+    if len(sys.argv) < 4:
+        print("Usage: python script.py username database_name")
+        sys.exit(1)
+
+
     # Create engine
     engine = create_engine('mysql+mysqldb://{}:@localhost:3306/{}'.format(
         sys.argv[1], sys.argv[2], sys.argv[3]), pool_pre_ping=True)
