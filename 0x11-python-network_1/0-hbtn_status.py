@@ -16,4 +16,4 @@ def main():
         print("\t- utf8 content: {}".format(html.decode('utf8')))
 
 if __name__ == "__main__":
-        main()
+    main()
