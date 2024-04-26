@@ -1,16 +1,17 @@
 #!/usr/bin/python3
 """
-Takes in a URL and an email, sends a POST request to the passed URL with the
-email as a parameter, and displays the body of the response (decoded in utf-8)
+Takes in a URL and an email, sends a POST request to the passed URL
+with the email as a parameter, and displays the body of the response
+(decoded in utf-8)
 """
 import urllib.request
 from sys import argv
 
 
-def main():
+def main(argv):
     """
-    Sends a POST request to the passe URL with the email as a parameter,
-    and displays the body of the response 
+    Sends a POST request to the passed URL with the email as a parameter,
+    and displays the body of the response (decoded in utf-8)
     """
     values = {'email': argv[2]}
     data = urllib.parse.urlencode(values)
@@ -22,4 +23,4 @@ def main():
         print(result.decode('utf8'))
 
 if __name__ == "__main__":
-    main(argv)
+    main(argv)"""
