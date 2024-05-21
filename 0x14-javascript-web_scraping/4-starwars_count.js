@@ -1,5 +1,5 @@
 #!/usr/bin/node
-// Prints the number of movies with character “Wedge Antilles”
+// Prints number of movies with character “Wedge Antilles”
 
 const request = require('request');
 let num = 0;
