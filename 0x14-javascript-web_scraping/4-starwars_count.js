@@ -1,5 +1,5 @@
 #!/usr/bin/node
-// Prints the number of movies where the character “Wedge Antilles”
+// Prints the number of movies with character “Wedge Antilles”
 
 const request = require('request');
 let num = 0;
@@ -9,8 +9,8 @@ request.get(process.argv[2], (error, response, body) => {
     console.log(error);
   } else {
     const content = JSON.parse(body);
-    content.result.forEach((film) => {
-      film.character.forEach((character) => {
+    content.results.forEach((film) => {
+      film.characters.forEach((character) => {
         if (character.includes(18)) {
 	  num += 1;
         }
