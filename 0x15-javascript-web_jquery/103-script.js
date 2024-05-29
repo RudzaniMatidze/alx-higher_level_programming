@@ -9,7 +9,7 @@ $(document).ready(function () {
 	function fetchTranslation() {
 		const language_code = $("INPUT#language_code").val();
 		$.getJSON(
-			`https://www.fourtonfish.com/hellosalut/hello/?lang=${language_code}`,
+			`https://fourtonfish.com/hellosalut/hello/?lang=${language_code}`,
 			function (data) {
 				$("#hello").text(data.hello);
 			}
